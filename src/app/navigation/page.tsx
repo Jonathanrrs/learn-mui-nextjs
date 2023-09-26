@@ -1,6 +1,12 @@
-import { MyBottomNavigation, MyDrawer } from "@/components/navigation";
 import { Divider, Typography } from "@mui/material";
+import {
+  MyBottomNavigation,
+  MyDrawer,
+  MyLink,
+  MyTabs,
+} from "@/components/navigation";
 import { Mooli } from "next/font/google";
+import { MyMenu } from "@/components/navigation/MyMenu";
 
 const mooli = Mooli({
   weight: ["400"],
@@ -17,6 +23,9 @@ export default function NamePage() {
       <MyBottomNavigation />
       <Divider />
       <MyDrawer />
+      <MyLink />
+      <MyMenu />
+      <MyTabs />
     </div>
   );
 }
