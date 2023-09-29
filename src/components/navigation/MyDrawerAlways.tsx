@@ -22,6 +22,7 @@ import {
   Campaign as CampaignIcon,
   Navigation as NavigationIcon,
   FormatPaint as FormatPaintIcon,
+  Square as SquareIcon,
 } from "@mui/icons-material";
 
 const drawerWidth = 240;
@@ -60,6 +61,11 @@ const itemsNav = [
     navTo: "/layoutmui",
     icon: <FormatPaintIcon />,
     title: "Layout",
+  },
+  {
+    navTo: "/responsivemui",
+    icon: <SquareIcon />,
+    title: "Responsive",
   },
 ];
 

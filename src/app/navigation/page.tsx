@@ -5,21 +5,25 @@ import {
   MyLink,
   MyTabs,
 } from "@/components/navigation";
+import { MyMenu } from "@/components/navigation";
 import { Mooli } from "next/font/google";
-import { MyMenu } from "@/components/navigation/MyMenu";
 
 const mooli = Mooli({
   weight: ["400"],
   style: ["normal"],
   subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
-export default function NamePage() {
+export default function NavigationPage() {
   return (
     <div>
       <Typography variant="h1" fontFamily={mooli.style.fontFamily}>
         Navigation Page
       </Typography>
+      {/* <Typography variant="h1">Fail</Typography> */}
+
       <MyBottomNavigation />
       <Divider />
       <MyDrawer />
