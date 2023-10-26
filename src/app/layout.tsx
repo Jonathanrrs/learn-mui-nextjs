@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+// import { authOptions } from "./api/auth/[...nextauth]/route";
 // import { redirect } from "next/navigation";
 import { MyDrawerAlways } from "@/components/navigation";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/providers/AuthProvider";
+import { authOptions } from "./api/auth/[...nextauth]/authOptions";
 
 const inter = Inter({ subsets: ["latin"] });
 
