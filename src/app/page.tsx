@@ -1,11 +1,11 @@
-import { MyDrawerAlways } from "@/components/navigation";
-import Button from "@mui/material/Button";
-export default function Home() {
+import { ButtonSignin } from "@/components/start";
+import { Box, Typography } from "@mui/material";
+
+export default async function Home() {
   return (
-    // {/* <main>
-    <h1>Start page</h1>
-    //   <Button variant="outlined">Hello world</Button>
-    // </main> */}
-    // <MyDrawerAlways />
+    <Box>
+      <Typography variant="h1">Start page</Typography>
+      <ButtonSignin />
+    </Box>
   );
 }

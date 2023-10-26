@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import LinkNext from "next/link";
 import {
   CssBaseline,
@@ -8,11 +8,12 @@ import {
   List,
   Typography,
   Divider,
-  AppBar,
+  // AppBar,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Button,
 } from "@mui/material";
 
 import {
@@ -24,11 +25,13 @@ import {
   FormatPaint as FormatPaintIcon,
   Square as SquareIcon,
 } from "@mui/icons-material";
+import { useSession, signOut } from "next-auth/react";
 
 const drawerWidth = 240;
 
 interface Props {
   children: React.ReactNode;
+  username: string | null;
 }
 
 const itemsNav = [
@@ -69,14 +72,18 @@ const itemsNav = [
   },
 ];
 
-export const MyDrawerAlways = ({ children }: Props) => {
+export const MyDrawerAlways = ({ children, username }: Props) => {
+  const { data: session, status } = useSession();
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar
+      {/* <AppBar
         position="fixed"
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-      ></AppBar>
+      >
+        <Typography>Hola</Typography>
+      </AppBar> */}
       <Drawer
         sx={{
           width: drawerWidth,
@@ -90,6 +97,9 @@ export const MyDrawerAlways = ({ children }: Props) => {
         anchor="left"
       >
         <Toolbar />
+        <Typography variant="body2" textAlign="center">
+          {username || "Sin información"}
+        </Typography>
         <Divider />
         <List>
           {/*  {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
@@ -112,6 +122,17 @@ export const MyDrawerAlways = ({ children }: Props) => {
           ))}
         </List>
         <Divider />
+        {status === "authenticated" && (
+          <Button
+            variant="outlined"
+            color="error"
+            size="small"
+            sx={{ width: "50%", alignSelf: "center", marginTop: "20px" }}
+            onClick={() => signOut()}
+          >
+            Logout
+          </Button>
+        )}
       </Drawer>
       <Box
         component="main"
