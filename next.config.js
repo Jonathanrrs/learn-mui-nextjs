@@ -10,10 +10,12 @@ const nextConfig = {
       ],
     };
   },
+  env: {
+    SENTRY_ENV: process.env.SENTRY_ENV || 'DEV',
+  },
 };
 
 module.exports = nextConfig;
-
 
 // Injected content via Sentry wizard below
 
