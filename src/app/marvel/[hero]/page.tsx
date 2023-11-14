@@ -1,4 +1,6 @@
+"use client";
 import * as Sentry from "@sentry/browser";
+import { useEffect } from "react";
 interface Props {
   params: {
     hero: string;
@@ -7,7 +9,11 @@ interface Props {
 
 export default function MarvelPage({ params }: Props) {
   const { hero } = params;
-  Sentry.setUser({ email: `${hero}@gmail.com` });
+
+  useEffect(() => {
+    Sentry.setUser({ email: `joni@gmail.com` });
+  }, [hero]);
+
   return (
     <div>
       <h1>Hello {hero}</h1>
