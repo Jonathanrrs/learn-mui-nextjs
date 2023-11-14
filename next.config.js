@@ -11,7 +11,7 @@ const nextConfig = {
     };
   },
   env: {
-    SENTRY_ENV: process.env.SENTRY_ENV || 'DEV',
+    SENTRY_ENV: process.env.SENTRY_ENV || 'prealfa',
   },
 };
 
